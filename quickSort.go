@@ -11,13 +11,14 @@ func quickSort(list []int) []int {
 		return list
 	}
 
+	item := rand.Intn(len(list))
+
 	var left []int
 	var right []int
 
-	p := len(list) - 1
-	v := list[p]
+	v := list[item]
 
-	list = append(list[:p])
+	list = append(list[:item])
 
 	for i := 0; i < len(list); i++ {
 		if list[i] < v {
