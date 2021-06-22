@@ -1,12 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
-	"time"
 )
 
-func quickSort(list []int) []int {
+func QuickSort(list []int) []int {
 	if len(list) < 2 {
 		return list
 	}
@@ -27,21 +25,7 @@ func quickSort(list []int) []int {
 			right = append(right, list[i])
 		}
 	}
-	left = quickSort(left)
-	right = quickSort(right)
+	left = QuickSort(left)
+	right = QuickSort(right)
 	return append(append(left, []int{v}...), right...)
-}
-
-func generateSlice(size int) []int {
-	slice := make([]int, size, size)
-	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < size; i++ {
-		slice[i] = rand.Intn(100) - rand.Intn(100)
-	}
-	return slice
-}
-
-func main() {
-	slice := generateSlice(100)
-	fmt.Println(quickSort(slice))
 }
